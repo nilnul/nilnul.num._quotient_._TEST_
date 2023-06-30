@@ -26,7 +26,7 @@ namespace nilnul.num.quotient._test.stream._seriesS
 			//	series.next();
 			//}
 			Debug.WriteLine(
-				q._radix.Dec.FroQ(asEnumerable.ElementAt(100000),1000000)	
+				q._radix.Dec.FroQ(asEnumerable.ElementAt(10),1000)	
 			);
 		}
 

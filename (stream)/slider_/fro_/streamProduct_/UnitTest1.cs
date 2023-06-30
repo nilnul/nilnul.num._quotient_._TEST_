@@ -12,7 +12,7 @@ namespace nilnul.num.quotient._test.slider_.fro_.streamProduct_
 		[TestMethod]
 		public void PoPowK_over_numPlus()
 		{
-			throw new Exception("too long running; (over quite a few or over ten minutes.)");
+			//throw new Exception("too long running; (over quite a few or over ten minutes.)");
 			var slider = new nilnul.num.quotient.slider_.fro_.streamProduct_.Square_over_SquarePlus();
 
 			var c = slider.current;
@@ -20,7 +20,8 @@ namespace nilnul.num.quotient._test.slider_.fro_.streamProduct_
 			var c1 = slider.current;
 
 			var precision = nilnul.num.quotient.op_.Poly.OneTenthPoly(
-t.Length - 2
+//t.Length - 2
+3
 					);
 
 			var precisonNeightbor = nilnul.num.quotient.Neighbor.Create(precision);

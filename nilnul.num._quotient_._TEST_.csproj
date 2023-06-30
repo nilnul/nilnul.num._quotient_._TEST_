@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>nilnul.num._quotient_._TEST_</RootNamespace>
     <AssemblyName>nilnul.num._quotient_._TEST_</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -20,6 +23,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -85,39 +90,54 @@
     <LangVersion>latest</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Sym2nuget|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Sym2nuget\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\.deps\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul.collection_._discrete_._LIB_, Version=1.0.8187.507, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul.collection_._discrete_._LIB_.1.0.8187.507\lib\net48\nilnul.collection_._discrete_._LIB_.dll</HintPath>
+    <Reference Include="nilnul.collection_._discrete_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>packages\nilnul.collection_._discrete_._LIB_.1.1.220728.140313\lib\net48\nilnul.collection_._discrete_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul.num._integer_._LIB_, Version=1.0.8220.34987, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul.num._integer_._LIB_.1.0.8220.34987\lib\net48\nilnul.num._integer_._LIB_.dll</HintPath>
+    <Reference Include="nilnul.num._integer_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul.num._integer_._LIB_.1.1.230504.132916-sym\lib\net481\nilnul.num._integer_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._bit_._LIB_, Version=1.0.8186.38808, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._bit_._LIB_.1.0.8186.38808\lib\net48\nilnul._bit_._LIB_.dll</HintPath>
+    <Reference Include="nilnul._bit_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._bit_._LIB_.1.1.230415.233652-sym\lib\net481\nilnul._bit_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._num_._LIB_, Version=1.0.8219.41091, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._num_._LIB_.1.0.8219.41091\lib\net48\nilnul._num_._LIB_.dll</HintPath>
+    <Reference Include="nilnul._character_._LIB_, Version=2.1.8387.39356, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._character_._LIB_.2.1.230408.121401-sym\lib\net481\nilnul._character_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._num_._LINQ_, Version=1.0.8186.37898, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._num_._LINQ_.1.0.8186.37898\lib\net48\nilnul._num_._LINQ_.dll</HintPath>
+    <Reference Include="nilnul._num_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._num_._LIB_.1.1.230504.90116-sym\lib\net481\nilnul._num_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._obj_._LIB_, Version=1.0.8222.36466, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._obj_._LIB_.1.0.8222.36466\lib\net48\nilnul._obj_._LIB_.dll</HintPath>
+    <Reference Include="nilnul._num_._LINQ_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._num_._LINQ_.1.1.230419.172425-sym\lib\net481\nilnul._num_._LINQ_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._rel_._LIB_, Version=1.1.8208.38024, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._rel_._LIB_.1.1.8208.38024\lib\net48\nilnul._rel_._LIB_.dll</HintPath>
+    <Reference Include="nilnul._obj_._LIB_, Version=1.2.0.0, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._obj_._LIB_.1.2.230504.90156-sym\lib\net481\nilnul._obj_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._set_._LIB_, Version=1.0.8186.39447, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._set_._LIB_.1.0.8186.39447\lib\net48\nilnul._set_._LIB_.dll</HintPath>
+    <Reference Include="nilnul._rel_._LIB_, Version=1.2.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._rel_._LIB_.1.2.230318.123603-sym\lib\net481\nilnul._rel_._LIB_.dll</HintPath>
+    </Reference>
+    <Reference Include="nilnul._set_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._set_._LIB_.1.1.230321.135854-sym\lib\net481\nilnul._set_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -125,11 +145,11 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="_nilnul_._LIB_, Version=1.0.8181.34397, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\_nilnul_._LIB_.1.0.8181.34397\lib\net48\_nilnul_._LIB_.dll</HintPath>
+    <Reference Include="_nilnul_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\_nilnul_._LIB_.1.1.230415.182959-sym\lib\net481\_nilnul_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="_nilnul_._LINQ_, Version=1.0.8100.39202, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\_nilnul_._LINQ_.1.0.8100.39202\lib\net48\_nilnul_._LINQ_.dll</HintPath>
+    <Reference Include="_nilnul_._LINQ_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\_nilnul_._LINQ_.1.1.230219.73454-sym\lib\net481\_nilnul_._LINQ_.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>
@@ -168,7 +188,57 @@
     <Compile Include="border\duo\to_\txt\UnitTest1.cs" />
     <Compile Include="calc\NewFolder1\UnitTest1.cs" />
     <Compile Include="calc\UnitTest1.cs" />
-    <Compile Include="Cf.cs" />
+    <Compile Include="eg_\gtOne\co\lg\UnitTest1.cs" />
+    <Compile Include="eg_\positive_\nonone\duo_\positive\lg\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile_\Cf.cs" />
+    <Compile Include="nilnul0\num\integer\str_\started_\nonhead8positive\comp\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\convergent_\seriesly\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\to_\quotiently_\cascadely\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\convergents_\evenOdd\theorem\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\convergent\be_\Simplified.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\convergent\co_\alternate\growth\theorem\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\theorem_\____n_kPlus__d_k___n_k__d_kPlus\vsPrev\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\theorem_\n_kPlus__d_k___n_k__d_kPlus\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\theorem_\n1d0_d0n1\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile_\eg_\T0522.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile_\eg_\T0523.cs" />
+    <Compile Include="nilnul0\num\quotient_\fractile_\nonneg\of_\ofDividing_\byEuclid\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\denomNonnil\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\positive\str_\started\fractile\theorem_\divideTrunkVsReverse\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\be_\nan\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\ofBits\bitsEqLong\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\ofBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\to_\asUlong\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\to_\bits\ByUnionStruc.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\denormal_\inf_\neg\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\denormal_\inf_\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\denormal_\nan_\quiet_\pos\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\denormal_\nan_\quiet_\neg\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\denormal_\nan_\signal\ofBits\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\denormal_\nan_\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nonnil_\min\toRational\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nonnil_\min\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\min\ofBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\min\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\max\ofBits\toRational\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\max\ofBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\max\toBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\one\ofBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\three\ofBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\two\ofBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole\ofBits\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\upperIncre\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\upperDecre\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\upper\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dec\of_\bits\invalid\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dec\of_\bits\neg\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dec\of_\bits\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dec\to_\bits\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dec\to_\rational\more\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dec\to_\rational\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\phrase\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\phrase_\noncollapse\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\recur\phrase_\noncollapse\UnitTest1.cs" />
     <Compile Include="nilnul0\num\quotient_\radix\recur_\binary_\UnitTest1.cs" />
     <Compile Include="nilnul0\num\quotient_\radix\recur_\dec_\unitOvSeven\UnitTest1.cs" />
     <Compile Include="equation_\Class1.cs" />
@@ -180,8 +250,24 @@
     <Compile Include="Accuracy.cs" />
     <Compile Include="matrix\op\UnitTest1.cs" />
     <Compile Include="nilnul0\num\quotient_\radix\recur_\dec\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nonnil_\dotOne\neg\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nil_\neg\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nil_\neg\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nil_\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nil_\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\one\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\nonnil_\dotOne\UnitTest1 - Copy.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\to_\bits\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\ieee_\bin\to_\quotient\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix_\floaty\phrase\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix_\floaty\phrase_\noncollapse\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix_\floaty\recur\phrase_\noncollapse\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix_\floaty\recur_\mantissaed\phrase_\noncollapse\ofRecur\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix_\floaty\recur_\mantissaed\phrase_\noncollapse\UnitTest1.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix_\floaty_\dec\parse\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Periodic.cs" />
+    <Compile Include="nilnul0\num\quotient_\radix\recur_\Periodic.cs" />
     <Compile Include="nilnul0\num\quotient_\radix\dec\UnitTest1.cs" />
     <Compile Include="slider\product\wallis\UnitTest1.cs" />
     <Compile Include="slider_\bernoulli_\recur\UnitTest1.cs" />
@@ -195,10 +281,23 @@
     <Compile Include="_streamS\Wallis.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="eg_\positive_\nonnil\co\" />
     <Folder Include="float_\" />
     <Folder Include="matrix\square\algo\crammer\" />
-    <Folder Include="nilnul0\num\quotient\radix\recur_\" />
+    <Folder Include="nilnul0\num\integer\str_\started\" />
+    <Folder Include="nilnul0\num\quotient_\fractile\continued\eg_\" />
+    <Folder Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\convergents_\" />
+    <Folder Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\convergent\denom\be_\geIndex\" />
+    <Folder Include="nilnul0\num\quotient_\fractile\to_\quotiently_\_cascadely\slider\convergent\denom_\indexGe4\be_\gtIndex\" />
+    <Folder Include="nilnul0\num\quotient_\fractile_\eg_\fibonacci\" />
+    <Folder Include="nilnul0\num\quotient_\frac\co\tween\" />
+    <Folder Include="nilnul0\num\quotient_\frac\of_\binary_\" />
+    <Folder Include="nilnul0\num\quotient_\radix\ieee_\dbl_\denormal_\inf_\pos\" />
+    <Folder Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\nonsup_\NewFolder1\" />
+    <Folder Include="nilnul0\num\quotient_\radix\ieee_\dbl_\normal_\sup_\whole_\one\one\" />
     <Folder Include="nilnul0\num\quotient_\radix\recur\NewFolder1\" />
+    <Folder Include="nilnul0\num\quotient_\radix_\binary_\dbl_\" />
+    <Folder Include="nilnul0\num\quotient_\radix_\floaty\recur\NewFolder1\" />
     <Folder Include="range\" />
     <Folder Include="slider_\eByExp\" />
     <Folder Include="stream\fibonacci\item\poly\" />
@@ -206,6 +305,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="License.txt" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\_LIB_\nilnul.num._quotient_._LIB_.csproj">
@@ -237,12 +339,12 @@
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\..\(packages)\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\(packages)\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
-  <Import Project="..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\(packages)\EntityFramework.6.4.4\build\EntityFramework.targets')" />
-  <Import Project="..\..\(packages)\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\(packages)\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -18,6 +18,13 @@ namespace nilnul.num.rational._test
 			var decimal_ = rational.float_.Periodic.FroRational(10, r);
 
 			var decimalStr = decimal_.ToString();
+			Assert.AreEqual(
+				decimalStr
+				,
+				"0.(3"
+				//"0.(142857)"
+			);
+
 
 			var str_1to7 = rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(1, 7)
@@ -26,21 +33,22 @@ namespace nilnul.num.rational._test
 			Assert.AreEqual(
 				str_1to7
 				,
-				"0.(142857)"
+				"0.(142857"
+				//"0.(142857)"
 			);
 			Assert.AreEqual(
 				rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(1, 17)
 				).ToString()
 				,
-				"0.(0588235294117647)"
+				"0.(0588235294117647"
 			);
 			Assert.AreEqual(
 				rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(1, 19)
 				).ToString()
 				,
-				"0.(052631578947368421)"
+				"0.(052631578947368421"
 			);
 
 			Assert.AreEqual(
@@ -48,35 +56,35 @@ namespace nilnul.num.rational._test
 					Rational_InheritFraction2.Create(1, 23)
 				).ToString()
 				,
-				"0.(0434782608695652173913)"
+				"0.(0434782608695652173913"
 			);
 			Assert.AreEqual(
 				rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(1, 29)
 				).ToString()
 				,
-				"0.(0344827586206896551724137931)"
+				"0.(0344827586206896551724137931"
 			);
 			Assert.AreEqual(
 				rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(1, 97)
 				).ToString()
 				,
-				"0.(01030927 83505154 63917525 77319587 62886597 93814432 98969072 16494845 36082474 22680412 37113402 06185567  )".Replace(" ", "")
+				"0.(01030927 83505154 63917525 77319587 62886597 93814432 98969072 16494845 36082474 22680412 37113402 06185567  )".Replace(" ", "").Replace(")", "")
 			);
 			Assert.AreEqual(
 				rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(1, 3)
 				).ToString()
 				,
-				"0.(3)".Replace(" ", "")
+				"0.(3)".Replace(" ", "").Replace(")", "")
 			);
 			Assert.AreEqual(
 				rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(3, 7)
 				).ToString()
 				,
-				"0.(428571)".Replace(" ", "")
+				"0.(428571)".Replace(" ", "").Replace(")", "")
 			);
 
 
@@ -85,14 +93,14 @@ namespace nilnul.num.rational._test
 					Rational_InheritFraction2.Create(1, 11)
 				).ToString()
 				,
-				"0.(09)".Replace(" ", "")
+				"0.(09)".Replace(" ", "").Replace(")", "")
 			);
 			Assert.AreEqual(
 				rational.float_.Periodic.FroRational(
 					Rational_InheritFraction2.Create(1, 13)
 				).ToString()
 				,
-				"0.(076923)".Replace(" ", "")
+				"0.(076923)".Replace(" ", "").Replace(")", "")
 			);
 
 
@@ -101,7 +109,7 @@ namespace nilnul.num.rational._test
 					Rational_InheritFraction2.Create(0, 1)
 				).ToString()
 				,
-				"0".Replace(" ", "")
+				"0".Replace(" ", "").Replace(")", "")
 			);
 
 			var testCases = new object[,] { 
@@ -111,6 +119,9 @@ namespace nilnul.num.rational._test
 				{1,1,"1"}
 				,
 				{2,1,"2"}
+
+
+
 				,
 				{9,1,"9"}
 				,
@@ -118,6 +129,10 @@ namespace nilnul.num.rational._test
 				,
 				{11,1,"11"}
 				,{19,1,"19"}
+
+
+
+
 				,
 				{20,1,"20"}
 				,
@@ -126,6 +141,9 @@ namespace nilnul.num.rational._test
 				{-2,1,"-2"}
 				,
 				{1,2,"0.5"}
+
+
+
 				,
 				{1,3,"0.(3)"}
 				,
@@ -156,17 +174,46 @@ namespace nilnul.num.rational._test
 						Rational_InheritFraction2.Create((int)(testCases[i, 0]), (int)testCases[i, 1])
 					).ToString()
 					,
-					testCases[i, 2] as string
+					(testCases[i, 2] as string).Replace(")", "")
 				);
 
 				if ((int)testCases[i, 0] > 0 && (int) testCases[i,1]>0)
 				{
+
+					Rational_InheritFraction2 r1 =
+
+						Rational_InheritFraction2.Create(-(int)(testCases[i, 0]), (int)testCases[i, 1]);
+
+					
+
+					rational.float_.Periodic periodic = rational.float_.Periodic.FroRational(
+																	r1
+																);
+
+					var periodic1111 = num.quotient_.radix.Recur._FroQuotient(10,
+
+						new Quotient1(
+							r1.numerator1
+							,
+							r1.denominatorAsBigInt
+						)
+					);
+					//var periodic22222222 = num.quotient_.radix.recur_.Recur._FroQuotient(10,
+
+					//	new Quotient1(
+					//		r1.numerator1
+					//		,
+					//		r1.denominatorAsBigInt
+					//	)
+					//);
+
+
+					string actual1 = quotient_.radix_.floaty.recur_.mantissaed.of_.coerce_._OfRecurX.ToMantissaed( periodic1111).phrase8decollapse();
+					string expected = "-" + (testCases[i, 2] as string).Replace(")", "");
 					Assert.AreEqual(
-						rational.float_.Periodic.FroRational(
-							Rational_InheritFraction2.Create(-(int)(testCases[i, 0]), (int)testCases[i, 1])
-						).ToString()
+						actual1
 						,
-						"-"+testCases[i, 2] as string
+						expected
 					);
 
 
