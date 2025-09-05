@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -7,8 +7,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using nilnul.obj;
 using System.Diagnostics;
 
+
 namespace nilnul.num._quotient_._TEST_.ask.ans
 {
+	//extern alias num;
 	/// <summary>
 	/// 1-9填入3*3方格中，每格不同。请问：每行之和，每列之和都是奇数的概率（最简真分数） 的分子和分母之和为多少
 	/// </summary>
@@ -38,14 +40,14 @@ namespace nilnul.num._quotient_._TEST_.ask.ans
 			Debug.WriteLine(q);
 			Debug.WriteLine(q.numerator + q.denominator1);
 			Debug.Assert(
-				q== Quotient1.CreateUnit(14)
+				q == Quotient1.CreateUnit(14)
 			);
 		}
 		public bool be(int[,] matrix)
 		{
-			return nilnul.obj._MatrixX.Rows(matrix).All(r => nilnul.num.be_._OddX._AssumeNum(r.Sum()))
+			return /*num::*/nilnul.obj._MatrixX.Rows(matrix).All(r => nilnul.num.be_._OddX._AssumeNum(r.Sum()))
 				&&
-				nilnul.obj._MatrixX.Cols(matrix).All(r => nilnul.num.be_._OddX._AssumeNum(r.Sum()));
+				/*num::*/nilnul.obj._MatrixX.Cols(matrix).All(r => nilnul.num.be_._OddX._AssumeNum(r.Sum()));
 		}
 
 		private bool be(int[] x)
